@@ -1,0 +1,31 @@
+SELECT *, 
+CASE WHEN age >= 50 THEN 'OLD'
+	 WHEN age isnull THEN 'unknown'
+	 ELSE 'young'
+FROM pilots;
+
+SELECT DATE_PART('month', 'book_date) AS month, SUM(total_amount)AS bookings,
+CASE WHEN SUM(total_amount) > 6958118400.00 THEN 'the most'
+	WHEN SUM(total_amount) < 6958118400.00 THEN 'the least'
+	ELSE 'the medium' END booking_qt
+
+FROM bookings
+GROUP BY month;
+
+SELECT COUNT(*)
+FROM flights;
+
+SELECT COUNT(NULLIF(actual_departure,null)) cnt1, COUNT(NULLIF(actual_arrival,null)) cnt2 )
+FROM flights;
+
+SELECT COUNT(*)- count (NULLIF(actual_departure,null)) non_cnt_1,
+COUNT(*)- count (NULLIF(actual_arrival,null)) non_cnt_2
+FROM flights;
+
+SELECT status, actual_departure, actual_arrival
+FROM flights
+
+SELECT status, COALESCE(actual_departure), 
+COALESCE(actual_arrival, current_timestamp)
+FROM flights
+WHERE actual_departure = null OR actual_arrival = null
