@@ -1,0 +1,133 @@
+Data Types:
+Character & var char
+Numerical data types(integers,floating point,real float)
+temporal data type(date-time timestamp)
+Array(array of integers , array of strings)
+Json(jason A, jason B)
+
+SELECT COLUMN1, COLUMN2 FROM TABLENAME; 
+SELECT * FROM TABLENAME ;
+SELECT * FROM aircrafts;
+SELECT model FROM aircrafts;
+SELECT range FROM aircrafts;
+
+Distinct
+
+SELECT timezone FROM airports;
+SELECT DISTINCT timezone FROM airports;
+
+Where Clause
+
+SELECT column1,column2 
+FROM table_name
+WHERE condition is 
+
+SELECT airport_code,airport_name,city
+FROM airports
+WHERE city->>'en' = 'Moscow'
+>
+<
+>=
+<=
+<> and :=
+AND
+OR
+LIKE
+
+SELECT * FROM aircrafts
+WHERE airport_code= '773';
+
+Operators
+
+SELECT * FROM airports
+WHERE timezone != 'Asia/Yakutsk';
+
+SELECT * FROM bookings
+WHERE total_amount > 200000;
+
+SELECT * FROM booking
+WHERE total_amount <> 200000;
+
+SELECT * FROM seats
+WHERE aircraft_code = '319' And fare_conditions = 'Business';
+
+SELECT * FROM seats
+WHERE aircraft_code = '319' OR fare_conditions = 'Business';
+
+SELECT * FROM aircrafts
+WHERE model ->> 'en' like 'Airbus%' ;
+SELECT * FROM aircrafts
+WHERE model ->> 'en' like '%200%' ;
+
+SELECT passenger_name
+FROM tickets
+WHERE passenger_name LIKE '__IN%';
+
+LIMIT & ORDERBY
+SELECT * or column1, column2
+FROM table_name
+limit 20;
+
+SELECT ticket_no, fare_conditions
+FROM ticket_flights
+WHERE fare_conditions='Business'
+limit 10 ;
+
+SELECT passenger_name, contact_data 
+FROM tickets
+order by passenger_name desc
+limit 50;
+
+FETCH VS LIMIT
+SELECT *
+FROM boarding_passes
+limit 10;
+SELECT *
+FROM boarding_passes
+FETCH FIRST 10 ROW ONLY;
+SELECT *
+FROM boarding_passes
+OFFSET 10 ROWS
+FETCH FIRST 10 ROW ONLY;
+
+
+WHERE CLAUSE (BETWEEN & IN) & AS
+SELECT *
+FROM table_name
+WHERE value BETWEEN low AND high;
+
+SELECT *
+FROM tickets
+WHERE ticket_no BETWEEN '0005432001000' AND '0005432002000';
+
+SELECT *
+FROM aircrafts
+WHERE range IN (5700, 6700, 1200);
+
+SELECT b.book_data as date_of_booking, b.total_Amount as total 
+FROM bookings as b;
+
+SELECT *
+FROM table_name 
+WHERE column value NOT IN (value1,value2,value3);
+
+SELECT *
+FROM aircrafts
+WHERE aircraft_code NOT IN ('SU9', '320', '733');
+
+IS NULL & IS NOT NULL
+SELECT *
+FROM flights
+WHERE actual_departure ISNULL AND actual_arrival ISNULL;
+
+SELECT *
+FROM flights
+WHERE actual_departure IS NOT NULL AND actual_arrival IS NOT NULL;
+
+CAST(CONVERT ONE DATATYPE TO ANOTHER)
+
+SELECT '50'::INTEGER
+SELECT CAST('50' AS INTEGER)
+SELECT CAST('true' as BOOLEAN)
+SELECT '30 minute' ::interval
+SELECT CAST('30 minute' AS INTERVAL)
