@@ -1,0 +1,16 @@
+1. What is the difference between SQL & PostgreSQL?
+2. What is the difference between SQL database & NoSQL database ?
+3. How to restore a database using PostgreSQL ?
+
+1.  SQL  or SQuel is a collection of organized information or data stored in a format called tables that
+can be reached easily by using DBMS which is stands for database Management System like
+MySQL, PostgreSQL, SQLite....etc
+- PostgreSQL pronounced as post-gress-Q-L  which is an open source relational database management system (DBMS) developed by a worldwide team of volunteers and, is not controlled by any corporation or other private entity and the source code is available free of charge.
+2. SQL database : Relational databases: data stored in tables which linked to each other using
+relationships managed using  DBMS like MySQL, PostgreSQL  and SQLite.....etc , DBMS is stands for database Management
+System.
+- NoSQL: non relational databases so databases of this type don’t have relations
+or links between tables so it can’t managed by using SQL.
+
+
+3. Click on database and right click restore and choose the file with which uu want to restore and Restore database and try to do that by your self.
