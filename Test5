@@ -29,3 +29,11 @@ WHERE f.departure_airport = 'SVO'
 AND f.scheduled_departure >= '2017-08-02' :: date
 AND f.scheduled_departure <'2017-08-03' :: date
 GROUP BY date_part ('hour', f.scheduled_departure);
+
+
+Use SQL  joins to  return unique city name, flight_no, airport and timezone?
+
+SELECT DISTINCT a.city, f.flight_no, a.airport_name AS airport, a.timezone
+FROM flights f
+JOIN airports_eng a
+ON a.airport_code = f.departure_airport;
