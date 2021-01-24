@@ -1,0 +1,51 @@
+SELECT COUNT(*)
+FROM table_name;
+
+SELECT COUNT(*)
+FROM aircrafts;
+
+SELECT COUNT(model)
+FROM aircrafts;
+
+CREATE TABLE pilots(
+	id SERIAL PRIMARY KEY,
+	name TEXT NOT NULL,
+	speciality TEXT NOT NULL,
+	age TEXT
+)
+
+INSERT INTO pilots(name, speciality, age)
+VALUES('John','pilot', 50),
+	('Sara','co_pilot', 35),
+	('David','pilot', null);
+
+SELECT * FROM pilots;
+
+SELECT COUNT(age) FROM pilots;
+
+SELECT COUNT(passenger_name) FROM tickets;
+
+SELECT COUNT(DISTINCT passenger_name) FROM tickets;
+
+SELECT SUM(total_amount) 
+FROM bookings;
+
+SELECT MIN(total_amount)
+FROM bookings;
+
+SELECT MAX(total_amount)
+FROM bookings;
+
+SELECT AVG(total_amount)
+FROM bookings;
+
+SELECT city,COUNT(*)
+FROM airports
+GROUP BY city
+HAVING COUNT(*) > 1;
+
+SELECT city ->> 'en' as city, COUNT(*)
+FROM airports
+GROUP BY city
+HAVING COUNT(*) > 1;
+
