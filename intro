@@ -1,0 +1,43 @@
+SQL
+SQL is a collection of organized information or data stored in a format called tables that can be reached easily by using DBMS.
+DBMS - DataBase Management System
+DBMS like MySql, PostgreSQL, SQLite
+DBMS PostgreSQL
+PostgreSQL- is an open source relational database management system developed by a worlwide team of volunters.
+is not controlled by any corporation or other private entity and the source code is available free of charge.
+was created at UCB by a computer science professor named Michael Stonebaker in 1986 by a floowup project to its predecessor , Ingres now owned by Computer Associates.
+1977-1985 Ingres developed
+Proof of concept for relational databases.
+Established the company ingres in 1980.
+Bought by computer associates in 1994
+
+Relational Databases: Data stored in table which linked to each other 
+using relationships.
+
+NoSQL: Non relational databases databases so databases of this type 
+don't have relations or links between tables so it can't managed by 
+using SQL. 
+
+Basics: Create tables
+	Create Column
+	Insert into Columns
+	Select statement
+	Clauses & keywords
+Sql Aggregation: Functions
+		Min(), Max(), Avg()
+		Sum(),Count()
+		Group By 
+		Having
+SQL Joins: Join Types
+	Inner join
+	Left Outer Join
+	Rightt Outer Join
+	Full Outer Join
+	Cross Join
+	Union & Union All
+	Intersection & Except
+
+Sub-Queries: CTE
+	Views
+	Time date
+
