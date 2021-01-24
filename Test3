@@ -1,0 +1,67 @@
+1. Calculate the Average tickets Sales?
+2. Return the number of seats in the air craft that has aircraft code = 'CN1' ?
+3. Return the number of seats in the air craft that has aircraft code = 'SU9'  ?
+4. Write a query to return the aircraft_code and the number of seats of each air craft ordered ascending?
+5. calculate the number of seats in the salons for all aircraft models, but now taking into account the class of service Business class and Economic class.
+6. What was the least day in tickets sales?
+
+1. SELECT AVG(total_amount) AS sales
+FROM bookings
+
+
+2. SELECT count (*)
+FROM seats
+WHERE aircraft_code = 'CN1';
+
+
+3. SELECT count (*)
+FROM seats
+WHERE aircraft_code = 'SU9'
+
+
+
+
+4. SELECT aircraft_code, count (*)
+FROM seats
+GROUP BY aircraft_code
+ORDER BY count;
+
+
+5. SELECT aircraft_code, fare_conditions, count (*)
+FROM seats
+GROUP BY aircraft_code, fare_conditions
+ORDER BY aircraft_code, fare_conditions;
+
+
+6. SELECT book_date, Sum(total_amount) AS sales
+FROM bookings
+GROUP BY 1
+ORDER BY 2
+LIMIT 1;
+Another solution to Coding Quiz no 6 :
+SELECT min (total_amount)
+FROM bookings;
+
+1. Determine how many flights from each city to other cities, return the the name of city and count of flights more than 50 order the data from the largest 
+no of flights to the least?
+
+
+2. Return all flight details in the indicated day 2017-08-28
+include flight count ascending order and departures count and when departures happen in arrivals count and when arrivals happen?
+
+1. SELECT (SELECT city ->> 'en' FROM airports WHERE airport_code =departure_airport) AS departure_city, COUNT(*)
+FROM flights
+GROUP BY (SELECT city ->> 'en' FROM airports WHERE airport_code =departure_airport)
+HAVING count (*)>= 50
+ORDER BY Count DESC;
+
+
+2. SELECT f.flight_no,f.scheduled_departure :: time AS dep_time,
+f.departure_airport AS departures,f.arrival_airport AS arrivals,
+count (flight_id)AS flight_count
+FROM flights f
+WHERE f.departure_airport = 'KZN'
+AND f.scheduled_departure >= '2017-08-28' :: date
+AND f.scheduled_departure <'2017-08-29' :: date
+GROUP BY 1,2,3,4,f.scheduled_departure
+ORDER BY flight_count DESC,f.arrival_airport,f.scheduled_departure;
